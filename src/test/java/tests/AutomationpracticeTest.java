@@ -23,29 +23,8 @@ public class AutomationpracticeTest extends ConfigurationTests {
                 .inputEmail()
                 .clickCreateAccount();
 
-        Assert.assertEquals(getPageUrl(),"http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        Assert.assertEquals(driver.getCurrentUrl(),"http://automationpractice.com/index.php?controller=authentication&back=my-account");
         Thread.sleep(5000);
-    }
-
-    private void clickCreateAccount() {
-        WebElement buttonCreateAccount = driver.findElement(By.id("SubmitCreate"));
-        buttonCreateAccount.click();
-    }
-
-    private String getPageUrl() {
-        return driver.getCurrentUrl();
-    }
-
-    private void inputEmail() {
-        WebElement emailAddressImput = driver.findElement(By.id("email_create"));
-        Faker faker = new Faker();
-        String email = faker.internet().emailAddress();
-        emailAddressImput.sendKeys(email);
-    }
-
-    private void clickSignIn() {
-        WebElement sigIn = driver.findElement(By.className("login"));
-        sigIn.click();
     }
 
     @Test
